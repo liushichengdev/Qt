@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+	<DisplayName>GuessNumber</DisplayName>
+	<Description>This is going to install GuessNumber on your machine</Description>
+	<Version>1.0.0-1</Version>
+	<ReleaseDate>2022-06-20</ReleaseDate>
+	<Licenses>
+		<License name="LIUSHICHENGDEV Agreement" file="license.txt"/>
+	</Licenses>
+	<Default>true</Default>
+</Package>

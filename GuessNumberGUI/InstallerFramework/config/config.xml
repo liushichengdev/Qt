@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+	<Name>GuessNumber</Name>
+	<Version>1.0</Version>
+	<Title>GuessNumber Installer</Title>
+	<Publisher>LIUSHICHENGDEV</Publisher>
+	<StartMenuDir>GuessNumber</StartMenuDir>
+	<TargetDir>@HomeDir@/GuessNumber</TargetDir>
+</Installer>
