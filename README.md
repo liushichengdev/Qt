@@ -21,3 +21,19 @@ Practices:
 1. First Qt GUI Application is base
 2. Guess Number Application includes source code, windeployqt and installerfarework.
 3. HelloQt: cpp vs QTextStream
+4. QList
+5. QObject
+6. QString
+7. QStringView
+8. QtSmartPointers
+9. ParentChild
+10. QByteArray
+11. QDeleteAll
+12. QsqlDatabase
+13. InventoryApp
+14. QMap
+15. QTextStream
+16. QDetermingOS
+17. QStorageInfo
+18. QDir
+19. 
