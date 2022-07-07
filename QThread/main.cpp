@@ -17,7 +17,9 @@ int main(int argc, char *argv[])
     mThread2.start();
     mThread3.start();
 
-
+    mThread1.stop=true;
+    mThread1.stop=false;
+    mThread1.stop=false;
 
     return a.exec();
 }

@@ -9,6 +9,8 @@ public:
     MyThread();
 
     void run();
+
+    bool stop;
 };
 
 #endif // MYTHREAD_H
