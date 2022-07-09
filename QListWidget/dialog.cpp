@@ -11,6 +11,20 @@ Dialog::Dialog(QWidget *parent)
     for(int i=0;i<9;i++){
         ui->listWidget->addItem(QString::number(i)+" item here");
     }
+
+    new QListWidgetItem(tr("Sycamore"), ui->listWidget);
+    new QListWidgetItem(tr("Chestnut"), ui->listWidget);
+    new QListWidgetItem(tr("Mahogany"), ui->listWidget);
+
+    QListWidgetItem *newItem = new QListWidgetItem;
+    newItem->setText("NewItemText");
+    ui->listWidget->insertItem(0, newItem);
+    //newItem->setToolTip(toolTipText);
+    //newItem->setStatusTip(toolTipText);
+    //newItem->setWhatsThis(whatsThisText);
+
+    //ui->listWidget->sortItems(Qt::AscendingOrder);
+    //ui->listWidget->sortItems(Qt::DescendingOrder);
 }
 
 Dialog::~Dialog()
