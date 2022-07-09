@@ -14,6 +14,14 @@ Dialog::Dialog(QWidget *parent)
     AddRoot("1 Hello", "World");
     AddRoot("2 Hello", "World");
     AddRoot("3 Hello", "World");
+
+    QTreeWidgetItem *cities = new QTreeWidgetItem(ui->treeWidget);
+    cities->setText(0, tr("Cities"));
+    QTreeWidgetItem *osloItem = new QTreeWidgetItem(cities);
+    osloItem->setText(0, tr("Oslo"));
+    osloItem->setText(1, tr("Yes"));
+
+    //QTreeWidgetItem *planets = new QTreeWidgetItem(ui->treeWidget, cities);
 }
 
 Dialog::~Dialog()
