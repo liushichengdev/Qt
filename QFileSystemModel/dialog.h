@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QFileSystemModel>
+#include <QInputDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
