@@ -37,8 +37,15 @@ void AnalogClock::paintEvent(QPaintEvent *)
         QPoint(0, -70)
     };
 
+    static const QPoint secondHand[3] = {
+        QPoint(7, 8),
+        QPoint(-7, 8),
+        QPoint(0, -90)
+    };
+
     QColor hourColor(127, 0, 127);
     QColor minuteColor(0, 127, 127, 191);
+    QColor secondColor(0, 98, 98, 191);
 
     int side = qMin(width(), height());
 
@@ -70,11 +77,29 @@ void AnalogClock::paintEvent(QPaintEvent *)
     painter.setBrush(minuteColor);
 
     painter.save();
-    //painter.rotate(6.0 * (time.minute() + time.second() / 60.0));
+    painter.rotate(6.0 * (time.minute() + time.second() / 60.0));
     painter.drawConvexPolygon(minuteHand, 3);
     painter.restore();
 
     painter.setPen(minuteColor);
+
+    for (int j = 0; j < 60; ++j) {
+        if ((j % 5) != 0)
+            painter.drawLine(92, 0, 96, 0);
+        painter.rotate(6.0);
+    }
+
+    // draw the second hand
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(secondColor);
+
+    painter.save();
+    //painter.rotate(1.0 * (time.minute() + time.second() / 60.0));
+    painter.rotate(6.0 * time.second());
+    painter.drawConvexPolygon(secondHand, 3);
+    painter.restore();
+
+    painter.setPen(secondColor);
 
     for (int j = 0; j < 60; ++j) {
         if ((j % 5) != 0)
