@@ -14,15 +14,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        l_casting.cpp
-        l_casting.h
-        l_casting.ui
+        L_Casting.cpp
+        L_Casting.h
+        L_Casting.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(L-Casting
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        L_Casting.qrc
+        LButton.h LButton.cpp
+        CommonDef.h
+        NaviBar.h NaviBar.cpp
+        NaviBarItem.h NaviBarItem.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET L-Casting APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>icon/金属材料.png</file>
+        <file>icon/入库管理.png</file>
+        <file>icon/应用管理.png</file>
+        <file>icon/生产管理.png</file>
+        <file>icon/库存管理.png</file>
+        <file>icon/出库管理.png</file>
+    </qresource>
+</RCC>
