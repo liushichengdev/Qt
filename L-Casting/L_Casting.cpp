@@ -1,5 +1,4 @@
 #include "l_casting.h"
-#include "IconDef.h"
 #include "CommonDef.h"
 #include "LButton.h"
 #include "NaviBar.h"
@@ -11,12 +10,16 @@
 #include <QPushButton>
 #include <QToolBar>
 #include <QVBoxLayout>
+#include <QDockWidget>
+#include <QLabel>
 
 L_Casting::L_Casting(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::L_Casting)
 {
     ui->setupUi(this);
+    this->setBaseSize(APP_WIDTH,APP_HEIGHT);
+    this->setStyleSheet("background-color: rgb(255,255,255)");
 
     // define QToolBox
 //    QToolBox *toolBox=new QToolBox(ui->centralwidget);
@@ -95,19 +98,15 @@ L_Casting::L_Casting(QWidget *parent)
 //    menu_all->addMenu(new QMenu("Second"));
 //    menu_all->addMenu(new QMenu("Third"));
 
-    QHBoxLayout *hBoxLayout=new QHBoxLayout(this);
-    ui->centralwidget->setLayout(hBoxLayout);
+//    QHBoxLayout *hBoxLayout=new QHBoxLayout(this);
+//   ui->centralwidget->setLayout(hBoxLayout);
 //    hBoxLayout->addWidget(toolBox);
 //    hBoxLayout->addWidget(menu_all);
 
-    // Navibar
-    NaviBar *naviBar=new NaviBar();
-    naviBar->addNaviBarItem("1");
-    naviBar->addNaviBarItem("2");
-    naviBar->addNaviBarItem("3");
-    naviBar->addNaviBarItem("item");
-    hBoxLayout->addWidget(naviBar);
+    // Navibar DockWidget
+    NaviBar *naviBar=new NaviBar(this);
 
+    this->addDockWidget(Qt::LeftDockWidgetArea,naviBar,Qt::Orientation::Vertical);
 
 }
 

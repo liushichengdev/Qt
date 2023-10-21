@@ -1,6 +1,10 @@
 #ifndef COMMONDEF_H
 #define COMMONDEF_H
 
+// APP
+#define APP_WIDTH   1920
+#define APP_HEIGHT  1080
+
 // Navigation Bar
 #define NAVIBAR_FOLD_WIDTH              76
 #define NAVIBAR_UNFOLD_WIDTH            164

@@ -13,7 +13,6 @@ public:
     ~NaviBarItem();
 
 private:
-    void setTextAlignment(Qt::Alignment alignment= Qt::AlignCenter);
     void setItemSize();
     QSize itemSize;
 

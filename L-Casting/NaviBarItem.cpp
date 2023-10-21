@@ -4,22 +4,22 @@
 
 NaviBarItem::NaviBarItem(QListWidget *parent, int type):QListWidgetItem(parent,type)
 {
-    setTextAlignment();
-    setItemSize();
+    this->setTextAlignment(Qt::AlignLeft);
+    this->setItemSize();
 }
 
 NaviBarItem::NaviBarItem(const QString &text, QListWidget *parent, int type)
     :QListWidgetItem(text,parent, type)
 {
-    setTextAlignment();
-    setItemSize();
+    this->setTextAlignment(Qt::AlignLeft);
+    this->setItemSize();
 }
 
 NaviBarItem::NaviBarItem(const QIcon &icon, const QString &text, QListWidget *parent, int type)
     :QListWidgetItem(icon,text,parent, type)
 {
-    setTextAlignment();
-    setItemSize();
+    this->setTextAlignment(Qt::AlignLeft);
+    this->setItemSize();
 }
 
 void NaviBarItem::enterEvent(QEnterEvent *event)
@@ -37,10 +37,6 @@ NaviBarItem::~NaviBarItem()
 
 }
 
-void NaviBarItem::setTextAlignment(Qt::Alignment alignment)
-{
-    QListWidgetItem::setTextAlignment(alignment);
-}
 
 void NaviBarItem::setItemSize()
 {
