@@ -1,15 +1,17 @@
-#ifndef LBUTTON_H
-#define LBUTTON_H
+#ifndef LPUSHBUTTON_H
+#define LPUSHBUTTON_H
 
 #include <QPushButton>
 #include <QMouseEvent>
 
-class LButton : public QPushButton
+class LPushButton : public QPushButton
 {
     Q_OBJECT
 public:
-    LButton(const QString &text, QWidget *parent = nullptr);
-    ~LButton();
+    LPushButton(const QString &text, QWidget *parent = nullptr);
+    ~LPushButton();
+
+
 
 signals:
     void leaveEvent_1();
@@ -21,4 +23,4 @@ protected:
     //void paintEvent(QPaintEvent *event) override;
 };
 
-#endif // LBUTTON_H
+#endif // LPUSHBUTTON_H
