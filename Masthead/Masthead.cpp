@@ -32,7 +32,6 @@ Masthead::Masthead(QWidget *parent, QSize* size)
 
     mastheadStart=new MastheadStart(this,size);
 
-
 }
 
 void Masthead::paintEvent(QPaintEvent *event)

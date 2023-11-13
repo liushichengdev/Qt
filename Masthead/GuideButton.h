@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QSize>
+#include <QPaintEvent>
 
 class GuideButton : public QPushButton
 {
@@ -16,8 +17,10 @@ private:
     QIcon _guideIcon;
 
 protected:
+    void paintEvent(QPaintEvent *event) override;
     void enterEvent(QEvent *event) override;
     void leaveEvent(QEvent *event) override;
+
 };
 
 #endif // GUIDEBUTTON_H

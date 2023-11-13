@@ -43,6 +43,7 @@ else()
             MastheadStart.h MastheadStart.cpp
             icon.qrc
             GuideButton.h GuideButton.cpp
+            MastheadCenter.h MastheadCenter.cpp
         )
     endif()
 endif()
