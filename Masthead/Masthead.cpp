@@ -17,8 +17,8 @@ Masthead::Masthead(QWidget *parent, QSize* size)
     this->setMinimumHeight(MASTHEAD_HEIGHT);
 
     // set geometry
-    this->setGeometry(0,0,size->width(),size->height()*MASTHEAD_HEIGHT/APP_HEIGHT);
-
+    //this->setGeometry(0,0,size->width(),size->height()*MASTHEAD_HEIGHT/APP_HEIGHT);
+    this->setGeometry(0,0,MASTHEAD_WIDTH,MASTHEAD_HEIGHT);
 
     // set Style
     this->setStyleSheet("Masthead {"
@@ -30,7 +30,12 @@ Masthead::Masthead(QWidget *parent, QSize* size)
 //                        "border-width:1px;"
                         "}");
 
+    // masthead start
     mastheadStart=new MastheadStart(this,size);
+
+    // masthead center
+    mastheadCenter= new MastheadCenter(this, size);
+
 
 }
 
@@ -40,4 +45,6 @@ void Masthead::paintEvent(QPaintEvent *event)
     opt.initFrom(this);
     QPainter p(this);
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+
+    QWidget::paintEvent(event);
 }

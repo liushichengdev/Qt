@@ -2,6 +2,7 @@
 #define MASTHEAD_H
 
 #include "MastheadStart.h"
+#include "MastheadCenter.h"
 #include <QWidget>
 #include <QSize>
 
@@ -19,6 +20,7 @@ protected:
 
 private:
     MastheadStart *mastheadStart;
+    MastheadCenter *mastheadCenter;
 
 };
 

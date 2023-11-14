@@ -44,6 +44,7 @@ else()
             icon.qrc
             GuideButton.h GuideButton.cpp
             MastheadCenter.h MastheadCenter.cpp
+            SubFunctionButton.h SubFunctionButton.cpp
         )
     endif()
 endif()

@@ -21,5 +21,8 @@ private:
 
     QSize screenSize;
     Masthead * masthead;
+
+protected:
+    //void resizeEvent(QResizeEvent *event) override;
 };
 #endif // MAINWINDOW_H

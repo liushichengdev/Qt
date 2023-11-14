@@ -12,13 +12,19 @@ GuideButton::GuideButton(QWidget *parent,QSize *size)
 {
     _guideIcon=QIcon(":/icon/application.png");
     this->setIcon(_guideIcon);
-    this->setIconSize(QSize(ICON_SIZE*size->width()/APP_WIDTH,
-                                    ICON_SIZE*size->width()/APP_WIDTH));
+//    this->setIconSize(QSize(ICON_SIZE*size->width()/APP_WIDTH,
+//                                    ICON_SIZE*size->width()/APP_WIDTH));
+    this->setIconSize(QSize(ICON_SIZE,
+                            ICON_SIZE));
 
-    this->setGeometry(0*size->width()/APP_WIDTH,
-                              8*size->height()/APP_HEIGHT,
-                              40*size->width()/APP_WIDTH,
-                              40*size->height()/APP_HEIGHT);
+//    this->setGeometry(0*size->width()/APP_WIDTH,
+//                              8*size->height()/APP_HEIGHT,
+//                              BTN_GUIDE_SIZE*size->width()/APP_WIDTH,
+//                              BTN_GUIDE_SIZE*size->height()/APP_HEIGHT);
+    this->setGeometry(0,
+                      8,
+                      BTN_GUIDE_SIZE,
+                      BTN_GUIDE_SIZE);
 
     this->setStyleSheet("QPushButton{"
                                 //"background: gray;"
