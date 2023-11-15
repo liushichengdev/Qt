@@ -2,19 +2,23 @@
 #define NAVIBARITEM_H
 
 
-#include <QListWidgetItem>
+#include <QMenu>
+#include "LPushButton.h"
 
-class NaviBarItem : public QListWidgetItem
+class NaviBarItem : public QWidget
 {
 public:
-    NaviBarItem(QListWidget *parent = nullptr, int type = Type);
-    NaviBarItem(const QString &text, QListWidget *parent = nullptr, int type = Type);
-    NaviBarItem(const QIcon &icon, const QString &text, QListWidget *parent = nullptr, int type = Type);
+    NaviBarItem(const QString &text, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     ~NaviBarItem();
+
+    void AddNaviBarSubItem(const QString &label);
 
 private:
     void setItemSize();
     QSize itemSize;
+
+    QMenu *menu;
+    LPushButton *lButton;
 
 protected:
     void enterEvent(QEnterEvent *event);

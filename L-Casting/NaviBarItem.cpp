@@ -2,25 +2,18 @@
 #include "NaviBarItem.h"
 
 
-NaviBarItem::NaviBarItem(QListWidget *parent, int type):QListWidgetItem(parent,type)
+NaviBarItem::NaviBarItem(const QString &text, QWidget *parent, Qt::WindowFlags f)
+    :QWidget(parent, Qt::WindowFlags())
 {
-    this->setTextAlignment(Qt::AlignLeft);
-    this->setItemSize();
+    menu=new QMenu();
+    menu->setSeparatorsCollapsible(false);
+    menu->setTearOffEnabled(false);
+
+    lButton=new LPushButton(text);
+
+    lButton->setMenu(menu);
 }
 
-NaviBarItem::NaviBarItem(const QString &text, QListWidget *parent, int type)
-    :QListWidgetItem(text,parent, type)
-{
-    this->setTextAlignment(Qt::AlignLeft);
-    this->setItemSize();
-}
-
-NaviBarItem::NaviBarItem(const QIcon &icon, const QString &text, QListWidget *parent, int type)
-    :QListWidgetItem(icon,text,parent, type)
-{
-    this->setTextAlignment(Qt::AlignLeft);
-    this->setItemSize();
-}
 
 void NaviBarItem::enterEvent(QEnterEvent *event)
 {
@@ -37,9 +30,16 @@ NaviBarItem::~NaviBarItem()
 
 }
 
+void NaviBarItem::AddNaviBarSubItem(const QString &label)
+{
+    QAction *action = new QAction("label");
+
+    this->menu->addAction(action);
+}
+
 
 void NaviBarItem::setItemSize()
 {
-    itemSize.setWidth(NAVIBAR_ITEM_GRID_SIZE_WIDTH);
-    itemSize.setHeight(NAVIBAR_ITEM_GRID_SIZE_HEIGHT);
+    itemSize.setWidth(NAVIBAR_ITEM_WITH);
+    itemSize.setHeight(NAVIBAR_ITEM_HEIHGT);
 }

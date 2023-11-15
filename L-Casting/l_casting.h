@@ -1,6 +1,7 @@
 #ifndef L_CASTING_H
 #define L_CASTING_H
 
+#include "Masthead.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -17,5 +18,9 @@ public:
 
 private:
     Ui::L_Casting *ui;
+
+    QDockWidget *topDockWidget;
+    QDockWidget *leftDockWidget;
+    Masthead *masthead;
 };
 #endif // L_CASTING_H

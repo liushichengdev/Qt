@@ -1,21 +1,21 @@
 #ifndef NAVIBAR_H
 #define NAVIBAR_H
 
-#include <QDockWidget>
-#include <QVBoxLayout>
+#include <QWidget>
+#include <QListWidget>
+#include <QMenuBar>
 #include <QMenu>
 #include <QLabel>
+#include <QDebug>
 #include "NaviBarItem.h"
 
-class NaviBar : public QDockWidget
+class NaviBar : public QWidget
 {
     Q_OBJECT
 public:
-    NaviBar(const QString &title, QWidget *parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
     NaviBar(QWidget *parent = nullptr, Qt::WindowFlags flags = Qt::WindowFlags());
-    void addNaviBarItem(const QString &label);
-    void addNaviBarItem(QWidget *item);
-    void addNaviBarItem(QWidget *item,int stretch = 0, Qt::Alignment alignment = Qt::Alignment());
+    void AddNaviBarItem(const QString &label);
+    void AddNaviBarSubItem(NaviBarItem *naviItem,const QString &label);
 
     ~NaviBar();
 
@@ -25,8 +25,7 @@ protected:
     void leaveEvent(QEvent *event) override;
 
 private:
-    QWidget *widget=new QWidget(this);
-    QVBoxLayout *vBoxLayout=new QVBoxLayout(widget);
+    QListWidget *listWidget=new QListWidget();
 
 };
 

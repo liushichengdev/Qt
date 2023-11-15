@@ -24,11 +24,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         L_Casting.qrc
-        LButton.h LButton.cpp
+        LPushButton.h LPushButton.cpp
         CommonDef.h
         NaviBar.cpp
         NaviBarItem.h NaviBarItem.cpp
         Navibar.h
+        Masthead.h Masthead.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET L-Casting APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
