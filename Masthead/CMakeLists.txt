@@ -45,6 +45,12 @@ else()
             GuideButton.h GuideButton.cpp
             MastheadCenter.h MastheadCenter.cpp
             SubFunctionButton.h SubFunctionButton.cpp
+            MastheadEnd.h MastheadEnd.cpp
+            Avatar.h Avatar.cpp
+            Notification.h Notification.cpp
+            GuideWrapper.h GuideWrapper.cpp
+            GuideHeader.h GuideHeader.cpp
+            GuideContent.h GuideContent.cpp
         )
     endif()
 endif()

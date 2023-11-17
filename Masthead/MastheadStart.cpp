@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QScreen>
 #include <QDebug>
+#include <QLabel>
 
 
 MastheadStart::MastheadStart(QWidget *parent, QSize *size)
@@ -31,7 +32,24 @@ MastheadStart::MastheadStart(QWidget *parent, QSize *size)
                         "border-width: 1px"
                         "}");
 
-    _guideButton=new GuideButton(this,size);
+    hBoxLayout=new QHBoxLayout();
+    hBoxLayout->setMargin(0);
+    hBoxLayout->setSpacing(9);
+
+    guideButton=new GuideButton(this,size);
+    hBoxLayout->addWidget(guideButton,0,Qt::AlignLeft);
+
+    logo_render=new QLabel("裕龙轧辊",this);
+    QFont font;
+    font.setFamily(QString("Arial"));
+    font.setBold(false);
+    font.setPointSize(5);
+
+    logo_render->setFont(font);
+    hBoxLayout->addWidget(logo_render,0,Qt::AlignLeft);
+
+    hBoxLayout->addSpacing(MASTHEAD_START_WIDTH);
+    this->setLayout(hBoxLayout);
 }
 
 void MastheadStart::paintEvent(QPaintEvent *event)
@@ -42,6 +60,11 @@ void MastheadStart::paintEvent(QPaintEvent *event)
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
     QWidget::paintEvent(event);
+}
+
+GuideButton *MastheadStart::getGuideButton() const
+{
+    return guideButton;
 }
 
 

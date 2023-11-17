@@ -10,7 +10,7 @@ GuideButton::GuideButton()
 GuideButton::GuideButton(QWidget *parent,QSize *size)
     : QPushButton{parent}
 {
-    _guideIcon=QIcon(":/icon/application.png");
+    _guideIcon=QIcon(GUIDE_ICON);
     this->setIcon(_guideIcon);
 //    this->setIconSize(QSize(ICON_SIZE*size->width()/APP_WIDTH,
 //                                    ICON_SIZE*size->width()/APP_WIDTH));

@@ -22,10 +22,10 @@ MastheadCenter::MastheadCenter(QWidget *parent, QSize *size)
 
     // set style
     this->setStyleSheet("QWidget {"
-                        "background:yellow"
-                        "border-color: black;"
+                        //"background:lightgray;"
+                        "border-color: gray;"
                         "border-style: solid;"
-                        "border-width: 1px"
+                        "border-width: 0px"
                         "}");
 
     hBoxLayout=new QHBoxLayout();
@@ -33,13 +33,13 @@ MastheadCenter::MastheadCenter(QWidget *parent, QSize *size)
     hBoxLayout->setSpacing(SUBFUNCTION_BTN_SPACING);
     this->setLayout(hBoxLayout);
 
-    SubFunctionButton *btn1=new SubFunctionButton("合同\n管理",this);
-    hBoxLayout->addWidget(btn1,0,Qt::AlignLeft);
-
     SubFunctionButton *btn2=new SubFunctionButton("客户\n管理",this);
     hBoxLayout->addWidget(btn2,0,Qt::AlignLeft);
 
-    SubFunctionButton *btn3=new SubFunctionButton("客户\n管理",this);
+    SubFunctionButton *btn1=new SubFunctionButton("合同\n管理",this);
+    hBoxLayout->addWidget(btn1,0,Qt::AlignLeft);
+
+    SubFunctionButton *btn3=new SubFunctionButton("生产\n进度",this);
     hBoxLayout->addWidget(btn3,0,Qt::AlignLeft);
 
     hBoxLayout->addSpacing(MASTHEAD_CENTER_WIDTH);

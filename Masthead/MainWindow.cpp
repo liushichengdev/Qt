@@ -23,13 +23,31 @@ MainWindow::MainWindow(QWidget *parent)
 
     masthead=new Masthead(ui->centralwidget,&screenSize);
 
+    guideWrapper=new GuideWrapper(ui->centralwidget);
+    guideWrapper->hide();
 
+    connect(masthead->getMastheadStart()->getGuideButton(),
+            &GuideButton::clicked,
+            guideWrapper,
+            &GuideWrapper::show);
+
+    connect(guideWrapper->getGuideHeader()->getGuideButton(),
+            &GuideButton::clicked,
+            guideWrapper,
+            &GuideWrapper::hide);
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete masthead;
+    delete guideWrapper;
+}
+
+GuideWrapper *MainWindow::getGuideWrapper() const
+{
+    return guideWrapper;
 }
 
 //void MainWindow::resizeEvent(QResizeEvent *event)

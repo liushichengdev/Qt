@@ -36,7 +36,15 @@ Masthead::Masthead(QWidget *parent, QSize* size)
     // masthead center
     mastheadCenter= new MastheadCenter(this, size);
 
+    // masthead End
+    mastheadEnd= new MastheadEnd(this);
+}
 
+Masthead::~Masthead()
+{
+    delete mastheadStart;
+    delete mastheadCenter;
+    delete mastheadEnd;
 }
 
 void Masthead::paintEvent(QPaintEvent *event)
@@ -47,4 +55,9 @@ void Masthead::paintEvent(QPaintEvent *event)
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
     QWidget::paintEvent(event);
+}
+
+MastheadStart *Masthead::getMastheadStart() const
+{
+    return mastheadStart;
 }

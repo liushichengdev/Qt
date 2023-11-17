@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "Masthead.h"
+#include "GuideWrapper.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -16,11 +17,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    GuideWrapper *getGuideWrapper() const;
+
 private:
     Ui::MainWindow *ui;
 
     QSize screenSize;
-    Masthead * masthead;
+    Masthead *masthead;
+    GuideWrapper *guideWrapper;
 
 protected:
     //void resizeEvent(QResizeEvent *event) override;
