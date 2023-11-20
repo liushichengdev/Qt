@@ -59,17 +59,17 @@
 
 // Guide Inner Content
 #define GUIDE_CONTENT_PADDING           12
-#define GUIDE_CONTENT_WIDTH             216
+#define GUIDE_CONTENT_WIDTH             240
 #define GUIDE_CONTENT_LENGTH            ?
-#define GUIDE_ITEM_WIDTH                204
-#define GUIDE_ITEM_HEIGHT               40
-#define GUIDE_ITME_PADDING_LEFT         12
-#define GUIDE_ITME_PADDING_RIGHT        12
-#define GUIDE_ITME_ICON_WITH            24
-#define GUIDE_ITME_ICON_HEIGHT          24
-#define GUIDE_ITME_ICON_MARGIN_RIGHT    24
-#define GUIDE_ITME_STRING_WIDTH         132
-#define GUIDE_ITME_STRING_HEIGHT        20
+#define GUIDE_CONTENT_ITEM_WIDTH                204
+#define GUIDE_CONTENT_ITEM_HEIGHT               40
+#define GUIDE_CONTENT_ITME_PADDING_LEFT         12
+#define GUIDE_CONTENT_ITME_PADDING_RIGHT        12
+#define GUIDE_CONTENT_ITME_ICON_WITH            24
+#define GUIDE_CONTENT_ITME_ICON_HEIGHT          24
+#define GUIDE_CONTENT_ITME_ICON_MARGIN_RIGHT    24
+#define GUIDE_CONTENT_ITME_STRING_WIDTH         132
+#define GUIDE_CONTENT_ITME_STRING_HEIGHT        20
 
 
 #endif // COMMONDEF_H

@@ -2,6 +2,7 @@
 #define GUIDEWRAPPER_H
 
 #include "GuideHeader.h"
+#include "GuideContent.h"
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -26,6 +27,7 @@ private:
     QVBoxLayout *vBoxLayout;
 
     GuideHeader *guideHeader;
+    GuideContent *guideContent;
 
 };
 

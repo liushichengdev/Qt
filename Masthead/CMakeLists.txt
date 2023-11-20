@@ -51,6 +51,7 @@ else()
             GuideWrapper.h GuideWrapper.cpp
             GuideHeader.h GuideHeader.cpp
             GuideContent.h GuideContent.cpp
+            GuideContentItem.h GuideContentItem.cpp
         )
     endif()
 endif()

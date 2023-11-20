@@ -2,6 +2,7 @@
 #define GUIDECONTENT_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 
 class GuideContent : public QWidget
 {
@@ -13,6 +14,9 @@ signals:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+
+private:
+    QVBoxLayout *vBoxLayout;
 
 };
 

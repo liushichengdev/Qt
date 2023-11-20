@@ -27,20 +27,24 @@ GuideWrapper::GuideWrapper(QWidget *parent)
     widgetGuide->setFixedWidth(GUIDE_WRAPPER_WIDTH);
     widgetGuide->setStyleSheet("QWidget{"
                                //"background-color: yellow;"
-                               "border-right-width:1px;"
-                               "border-style:solid;"
+                               //"border-right-width:1px;"
+                               //"border-style:solid;"
                                //"border-color:gray;"
                                "}");
 
     vBoxLayout=new QVBoxLayout();
     vBoxLayout->setMargin(0);
-    vBoxLayout->setSpacing(9);
+    vBoxLayout->setSpacing(0);
 
     guideHeader=new GuideHeader();
 
     //vBoxLayout->addWidget(guideHeader,0,Qt::AlignTop);
     vBoxLayout->addWidget(guideHeader);
-    vBoxLayout->addSpacing(APP_HEIGHT-GUIDE_HEADER_HEIGHT);
+
+    //Guide Content
+    guideContent=new GuideContent();
+
+    vBoxLayout->addWidget(guideContent);
 
     widgetGuide->setLayout(vBoxLayout);
     //widgetGuide->show();
@@ -51,10 +55,10 @@ GuideWrapper::GuideWrapper(QWidget *parent)
     // Flexy Part
     QWidget *widgetFlexy=new QWidget();
     widgetFlexy->setStyleSheet("QWidget{"
-                               "background-color: rgba(228,228,228,100);"
+                               "background-color: rgba(128,128,128,100);"
                                "border-left-width:1px;"
                                "border-style:solid;"
-                               "border-color:gray;"
+                               //"border-color:gray;"
                                "}");
 
     hBoxLayout->addWidget(widgetFlexy);
