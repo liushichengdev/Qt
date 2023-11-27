@@ -3,5 +3,7 @@
         <file>icon/application.png</file>
         <file>icon/avatar.png</file>
         <file>icon/notification.png</file>
+        <file>qss/GuideContentItem.qss</file>
+        <file>qss/GuideButton.qss</file>
     </qresource>
 </RCC>

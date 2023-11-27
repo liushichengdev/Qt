@@ -19,19 +19,39 @@ GuideContent::GuideContent(QWidget *parent)
     // set style
     this->setStyleSheet("QWidget{"
                         "background-color: rgb(251,251,253);"
-                        //"border-right-width:1px;"
-                        //"border-style:solid;"
-                        //"border-color:gray;"
+                        "margin-top:0px;"
+                        "margin-right:0px;"
+                        "margin-bottom:0px;"
+                        "margin-left:0px;"
+                        "border-right-width:0px;"
+                        "border-style:solid;"
+                        "border-color:gray;"
+                        "padding-top:0px;"
+                        "padding-right:0px;"
+                        "padding-bottom:0px;"
+                        "padding-left:0px;"
                         "}");
 
     //
     vBoxLayout=new QVBoxLayout();
+    vBoxLayout->setMargin(0);
+    vBoxLayout->setSpacing(GUIDE_CONTENT_ITEM_SPACING);
     this->setLayout(vBoxLayout);
 
     vBoxLayout->addWidget(new GuideContentItem());
     vBoxLayout->addWidget(new GuideContentItem());
     vBoxLayout->addWidget(new GuideContentItem());
+    vBoxLayout->addSpacing(APP_HEIGHT);
+}
 
+GuideContent::~GuideContent()
+{
+    delete vBoxLayout;
+}
+
+void GuideContent::addGuideContentItem(GuideContentItem *item)
+{
+    this->vBoxLayout->addWidget(item);
 }
 
 void GuideContent::paintEvent(QPaintEvent *event)
