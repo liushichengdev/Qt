@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Application>
+        <AppName>裕龙轧辊</AppName>
+        <Function id="1" name="销售管理">
+		<SubFunction>
+			<Name>合同管理</Name>
+			<DLL>contract.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>客户管理</Name>
+			<DLL>CustomerManagement.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>在库成品</Name>
+			<DLL>FinishedProduct.dll</DLL>
+		</SubFunction>
+	</Function>
+        <Function id="2">
+		<Name>生产管理</Name>
+		<SubFunction>
+			<Name>生产计划</Name>
+			<DLL>ProductionPlan.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>模具管理</Name>
+			<DLL>MouldManagement.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>铸造管理</Name>
+			<DLL>CastingManagement.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>粗加工</Name>
+			<DLL>RoughFinish.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>热处理</Name>
+			<DLL>HeatTreatment.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>精加工</Name>
+			<DLL>HeatTreatment.dll</DLL>
+		</SubFunction>
+		<SubFunction>
+			<Name>不合格品</Name>
+			<DLL>UnacceptedProduct.dll</DLL>
+		</SubFunction>
+	</Function>
+</Application>

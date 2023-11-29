@@ -9,8 +9,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# set(CMAKE_CXX_COMPILER "C:/Qt/Tools/QtCreator/bin/clang/bin/clang-cl.exe")
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Xml)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -38,16 +41,18 @@ else()
     else()
         add_executable(XMLParser
             ${PROJECT_SOURCES}
+            config.qrc
         )
     endif()
 endif()
 
 target_link_libraries(XMLParser PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(XMLParser PRIVATE Qt${QT_VERSION_MAJOR}::Xml)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
+if(${QT_VERSION} VERSION_LESS 6.5.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.XMLParser)
 endif()
 set_target_properties(XMLParser PROPERTIES
