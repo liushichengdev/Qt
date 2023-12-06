@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Application>
-        <AppName>裕龙轧辊</AppName>
-        <Function id="1" name="销售管理">
+	<AppName>裕龙轧辊</AppName>
+	<Function id="1" name="销售管理">
 		<SubFunction>
 			<Name>合同管理</Name>
 			<DLL>contract.dll</DLL>
@@ -16,8 +16,7 @@
 			<DLL>FinishedProduct.dll</DLL>
 		</SubFunction>
 	</Function>
-        <Function id="2">
-		<Name>生产管理</Name>
+	<Function id="2" name="生产管理">
 		<SubFunction>
 			<Name>生产计划</Name>
 			<DLL>ProductionPlan.dll</DLL>

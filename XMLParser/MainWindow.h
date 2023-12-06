@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFile>
+#include <QDomDocument>
+#include "BaseStruct.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +18,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void LoadXmlConfigFile();
+
+    void BuildFunctionNodeVector();
+
 private:
     Ui::MainWindow *ui;
+
+    QString fileStr;
+    QFile *xmlConfigFile;
+    QDomDocument *dom;
+
+    std::vector<FunctionNode> functionNodes;
+
 };
 #endif // MAINWINDOW_H

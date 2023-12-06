@@ -4,91 +4,14 @@
 #include <QDomDocument>
 #include <QDebug>
 
-using namespace  std;
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    QString currentDir = QCoreApplication::applicationDirPath();
-    qDebug()<<"Current Dir: "<<currentDir;
-    QString fileStr=currentDir+QString("config.xml");
-    qDebug()<<"File String: "<<fileStr;
-    QFile *file=new QFile("F:/Qt/Qt Widget/XMLParser/config.xml");
-    //QFile *file=new QFile(fileStr);
-
-    QDomDocument *doc=new QDomDocument();
-
-
-    if (!file->open(QIODevice::ReadOnly)){
-        qDebug()<<"Open File Success";
-    }
-
-    bool parseResult=doc->setContent(file);
-    // check the result of QDomDocument::setContent()
-    if (parseResult) {
-        qDebug()<<"XML Parse Success. ";
-        file->close();
-    }
-    else{
-        qDebug()<<"XML Parse Error: ";
-        file->close();
-        //return;
-    }
-
-    // print out the element names of all elements that are direct children
-    // of the outermost element.
-    QDomElement docElem = doc->documentElement();
-
-    QDomNode n = docElem.firstChild();
-
-    while(!n.isNull()) {
-        QDomElement e = n.toElement(); // try to convert the node to an element.
-        if(!e.isNull()) {
-            qDebug() << qPrintable(e.tagName()) <<"="<<qPrintable(e.text()); // the node really is an element.
-        }
-        n = n.nextSibling();
-    }
-
-    n = docElem.firstChild();
-    while(!n.isNull()){
-        QDomElement e = n.toElement();
-        QDomAttr a=e.attributeNode("id");
-        if(!a.isNull() && !e.isNull()){
-            qDebug()<<e.tagName() <<","<<qPrintable(a.value())<<","<<e.text();
-        }
-        n=n.nextSibling();
-    }
-
-    QDomNodeList nodes = doc->elementsByTagName("Name");
-    for(int i = 0; i < nodes.count(); i++)
-    {
-        QDomNode n = nodes.at(i);
-        if(n.isElement())
-        {
-            qDebug() << n.toElement().tagName()
-                     << " = "
-                     <<  n.toElement().text();
-        }
-    }
-
-    nodes = doc->elementsByTagName("Function");
-    qDebug()<<"Tag Name [Function] Size: "<<nodes.count();
-    for(int i = 0; i < nodes.count(); i++)
-    {
-        QDomNode node = nodes.at(i);
-        if(node.isElement())
-        {
-            QDomNodeList nodes=node.childNodes();
-            qDebug()<<"SubFunction :"<<nodes.count();
-            for(int j=0;j<nodes.count();j++){
-                QDomNode n=nodes.at(j);
-                qDebug()<<n.toElement().text();
-            }
-        }
-    }
+    LoadXmlConfigFile();
+    BuildFunctionNodeVector();
 
     qDebug()<<"End";
 }
@@ -98,3 +21,75 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::LoadXmlConfigFile()
+{
+    this->xmlConfigFile = new QFile("F:/Qt/Qt Widget/XMLParser/config.xml");
+
+    this->dom = new QDomDocument();
+
+
+    if (!xmlConfigFile->open(QIODevice::ReadOnly)) {
+        qDebug() << "Open File Success";
+    }
+
+    QDomDocument::ParseResult parseResult = this->dom->setContent(xmlConfigFile);
+    // check the result of QDomDocument::setContent()
+    if (parseResult) {
+        qDebug() << "XML Parse Success. ";
+        this->xmlConfigFile->close();
+    }
+    else {
+        qDebug() << "XML Parse Error: ";
+        this->xmlConfigFile->close();
+        //return;
+    }
+}
+
+void MainWindow::BuildFunctionNodeVector()
+{
+    int id = 0;
+    QDomNodeList nodes = this->dom->elementsByTagName("Function");
+    qDebug() << "Tag Name [Function] Size: " << nodes.count();
+    for (int i = 0; i < nodes.count(); i++)
+    {
+        QDomNode node = nodes.at(i);
+
+        // check attributes
+        if (!node.hasAttributes()) {
+            qDebug() << "Please Check Xml Config File.";
+        }
+
+        id++;
+
+        QDomNamedNodeMap map = node.attributes();
+
+        FunctionNode functionNode;;
+
+        functionNode.id = id;
+        functionNode.name= map.namedItem("name").nodeValue();
+
+        if (node.isElement())
+        {
+            QDomNodeList ns = node.childNodes();
+            qDebug() << "SubFunction :" << ns.count();
+
+            int subID = 0;
+
+            for (int j = 0; j < ns.count(); j++) {
+                QDomNode n = ns.at(j);
+                qDebug() << n.toElement().text();
+                subID++;
+
+                SubFunctionNode subFunctionNode;
+                subFunctionNode.id = subID;
+                subFunctionNode.name = n.toElement().elementsByTagName("Name").at(0).toElement().text();
+                subFunctionNode.dll = n.toElement().elementsByTagName("DLL").at(0).toElement().text();
+                functionNode.subFunctionVector.push_back(subFunctionNode);
+            }
+        }
+
+        this->functionNodes.push_back(functionNode);
+    }
+
+
+}
